@@ -1,0 +1,36 @@
+body {
+	background-image: url(../img/geometry2.png);
+	font-family: "Saira Condensed", sans-serif;
+}
+
+#notEaten {
+	float: left;
+	display: inline;
+	margin: 5px;
+}
+
+#eaten {
+	float: right;
+	display: inline;
+	margin: 5px;
+}
+
+img {
+	height: 250px;
+}
+
+.jumbotron {
+	width: 100%;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+#submitButton {
+	margin-bottom: 20px;
+	background-color: #F5E6CC;
+	font-family: "Saira Condensed", sans-serif;
+}
+

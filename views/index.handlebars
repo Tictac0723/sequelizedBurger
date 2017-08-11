@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="jumbotron">
+        <img src="/assets/img/burger.png">
+        <h1>Eat-Da-Burger</h1>
+    </div>
+    {{!--burger list before I ate it--}}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel-panel default" id="notEaten">
+            <h2>EAT DEM BURGERS</h2>
+                <ul class="list-group">
+                    {{#each burgers}} {{#unless this.devoured}}
+                    <li class="list-group-item">
+                        <div class="input-group">
+                            <p class="lead"> {{this.burger}} </p>
+                            <span class="input-group-btn">
+								<form action="burgers/{{this.id}}?_method=PUT" method="POST">
+									<input type="hidden" name="devoured" value="true">
+									<button class="btn btn-default btn-lg" type="submit">EAT DAT BURGER! </button>
+								</form>
+							</span>
+                        </div>
+                    </li>
+                    {{/unless}} {{/each}}
+                </ul>
+            </div>
+        </div>
+        {{!--burger list after eaten--}}
+        <div class="col-md-6">
+        <h2>You ate all deez burgers!</h2>
+            <div class="panel panel-default" id="eaten">
+                <ul class="list-group">
+                    {{#each burgers}} {{#if this.devoured}}
+                    <li class="list-group-item">
+                        <p class="lead">{{this.burger}} </p>
+                    </li>
+                    {{/if}} {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Order da Burger</h2>
+            <form class="create-update-form" action="/burgers" method="POST">
+                <div class="form-group">
+                    <h3>What's da burger Name?</h3>
+                    <br>
+                    <textarea class="form-control input-lg" type="text" name="b_name" rows="3"></textarea>
+                </div>
+                <button type="sumbit" class="bt btn-default btn-lg" id="submitButton">Submit Da Burger</button>
+            </form>
+        </div>
+    </div>
+</div>
